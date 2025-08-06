@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StyleMate</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f7f7f7;
+    }
+    #chatbox {
+      border: 1px solid #ccc;
+      background: white;
+      padding: 10px;
+      height: 400px;
+      overflow-y: scroll;
+      margin-bottom: 10px;
+    }
+    #inputArea {
+      display: flex;
+    }
+    input {
+      flex: 1;
+      padding: 10px;
+    }
+    button {
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>StyleMate AI Chat</h1>
+  <div id="chatbox"></div>
+  <div id="inputArea">
+    <input type="text" id="userInput" placeholder="Describe your outfit or event..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+
+  <script>
+    function sendMessage() {
+      const input = document.getElementById('userInput');
+      const chatbox = document.getElementById('chatbox');
+      const userText = input.value;
+
+      if (userText.trim() === '') return;
+
+      chatbox.innerHTML += `<p><strong>You:</strong> ${userText}</p>`;
+      input.value = '';
+
+      // Fake AI reply for now
+      setTimeout(() => {
+        chatbox.innerHTML += `<p><strong>StyleMate:</strong> That’s a great start! Let me help you style it...</p>`;
+        chatbox.scrollTop = chatbox.scrollHeight;
+      }, 500);
+    }
+  </script>
+</body>
+</html>
